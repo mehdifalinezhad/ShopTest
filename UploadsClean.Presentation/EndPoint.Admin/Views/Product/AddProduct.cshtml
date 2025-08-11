@@ -1,0 +1,52 @@
+﻿@using UploadsClean.Domain.Entities
+@model Product
+<div class="card">
+    <div class="card-body">
+        <h6 class="card-title">اضافه کردن کالا</h6>
+        <form role="form" method="post" asp-controller="Product" asp-action="AddProduct" class="needs-validation" novalidate="" enctype="multipart/form-data">
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="validationCustom01">نام </label>
+                    <input type="text" class="form-control" asp-for="Name">
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="validationCustom01">عکس محصول </label>
+                    <input type="File" class="form-control" asp-for="ImageUrl" placeholder="فایل عکس"> 
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="validationCustom01">تعداد </label>
+                    <input type="text" class="form-control" asp-for="Count">
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="validationCustom01">قیمت به تومان </label>
+                    <input type="text" class="form-control" asp-for="Price">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-6 mb-6">
+                    <label>انتخاب دسته محصول</label>
+                    <div class="input-group">
+                        <div class="btn-group">
+                            <select asp-for="CategoryId" class="custom-select custom-select-lg mb-3َ">
+                                @foreach (var item in Model.theCategories)
+                                {
+                                    <option value="@item.Id">@item.Name</option>
+                                }
+                            </select>
+                        </div>
+                        
+                    </div>
+                </div>
+      
+            
+            
+            </div>
+            <div class="row">
+                <button class="btn btn-primary" type="submit">ثبت فرم</button>
+            </div>
+        </form>
+    </div>
+
+</div>

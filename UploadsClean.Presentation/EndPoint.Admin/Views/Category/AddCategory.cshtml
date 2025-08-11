@@ -1,0 +1,24 @@
+﻿@using UploadsClean.Domain.Entities
+
+@model Category
+<div class="card">
+    <div class="card-body">
+        <h6 class="card-title">اضافه کردن دسته بندی</h6>
+        <form role="form" method="post" asp-controller="Category" asp-action="AddCategory" class="needs-validation" novalidate="" enctype="multipart/form-data">
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="validationCustom01">نام </label>
+                    <input type="text" class="form-control" asp-for="Name" placeholder="نام دسته بندی">
+                   @*  <span asp-validation-for="Title"></span> *@
+                    
+                </div>         
+            </div>
+            <div class="row">
+                <button class="btn btn-primary" type="submit">ثبت فرم</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+

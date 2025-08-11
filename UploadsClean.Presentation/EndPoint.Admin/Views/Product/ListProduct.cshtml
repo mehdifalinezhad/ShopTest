@@ -1,0 +1,55 @@
+﻿@using UploadsClean.Domain.Entities
+@model List<Product>
+<div class="row">
+    <div class="col-md-12">
+        <div class="col-lg-3 col-sm-6 m-t-b-20">
+            <a href="/Category/AddCategory">
+                <button type="button" class="btn btn-youtube">
+                    <i class="fa fa-youtube"></i>
+                </button>
+            </a>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">ردیف</th>
+                                <th scope="col">نام</th>
+                                <th scope="col">عکس</th>
+                               
+                                 <th scope="col">ویرایش</th> 
+                                <th scope="col">حذف</th>
+                                @* <th scope="col">افزودن به سبد خرید</th> *@
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @{
+                                int Count = 0;
+                            }
+                            @foreach (var item in Model)
+                            {
+                              <input type="hidden" asp-for="@item.Id" />
+                                Count = Count + 1;
+                                <tr>
+                                    <td scope="row">@Count</td>
+                                    <td>@item.Name</td>
+                                    <td><img src="@item.ImageUrl" style="height:30px;width:50px;"/></td>
+                                    <td><a href="/product/GetproductById?Id=@item.Id">ویرایش</a></td>
+                                    <td><a href="/Category/CategoryDel?Id=@item.Id"> del</a></td>
+                                   @*  <td><a href="/Shop/AddToCart?Id=@item.Id"> +</a></td> *@
+                                </tr>
+
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

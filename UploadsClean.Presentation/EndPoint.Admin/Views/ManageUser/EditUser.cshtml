@@ -1,0 +1,99 @@
+﻿@using UploadsClean.Domain.Entities.Users
+
+@model ApplicationUser
+<div class="card">
+    <div class="card-body">
+        <h6 class="card-title">پروفایل کاربر </h6>
+        <form role="form" method="post" asp-controller="ManageUser" asp-action="AddUser" class="needs-validation" novalidate="">
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="validationCustom01">نام </label>
+                    <input type="text" class="form-control" asp-for="FarsiFirstName" placeholder="نام" required="">
+                    <span asp-validation-for="FarsiFirstName"></span>
+                    <div class="valid-feedback">
+                        صحیح است!
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="validationCustom01"> نام خانوادگی </label>
+                    <input type="text" class="form-control" asp-for="FarsiLastName" placeholder="نام" required="">
+                    <span asp-validation-for="FarsiLastName"></span>
+                    <div class="valid-feedback">
+                        صحیح است!
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="validationCustom02">نام کاربری</label>
+                    <input type="emial" class="form-control" asp-for="UserName" placeholder="" required="">
+                    <span asp-validation-for="UserName"></span>
+                </div>
+
+
+                <div class="col-md-6 mb-3">
+                    <label for="validationCustomUsername">رمزعبور</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroupPrepend"></span>
+                        </div>
+                        <input type="text" asp-for="Password" class="form-control text-left" id="validationCustomUsername" placeholder="نام کاربری" aria-describedby="inputGroupPrepend" dir="ltr" required="">
+                        <span asp-validation-for="Password"></span>
+                    </div>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+               
+                    <div class="col-md-12 mb-3">
+                        <label for="validationCustomUsername">شماره موبایل</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend"></span>
+                            </div>
+                            <input type="text" asp-for="PhoneNumber" class="form-control text-left" id="validationCustomUsername" placeholder="نام کاربری" aria-describedby="inputGroupPrepend" dir="ltr" required="">
+                            <span asp-validation-for="PhoneNumber"></span>
+                        </div>
+
+
+                        <label for="validationCustomUsername">ایمیل</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend"></span>
+                            </div>
+                            <input type="text" asp-for="Email" class="form-control text-left" id="validationCustomUsername" placeholder="ایمیل " aria-describedby="inputGroupPrepend" dir="ltr" required="">
+                            @*  <span asp-validation-for="Email"></span> *@
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-6 mb-6">
+                    <label for="validationCustomUsername">انتخاب نقش</label>
+                    <div class="input-group">
+                        <div class="btn-group">
+
+                            <select class="custom-select custom-select-lg mb-3" asp-for="Role">
+
+
+                                <option value="Admin">
+                                    Admin
+                                </option>
+                                <option value="Customer">
+                                    Customer
+                                </option>
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <button class="btn btn-primary" type="submit">ویرایش </button>
+            </div>
+        </form>
+    </div>
+
+
+
+
+</div>
+
+
