@@ -10,6 +10,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using UploadsClean.Common;
+using UploadsClean.Common.Dto;
 using UploadsClean.Domain.Entities.Users;
 
 namespace EndPoint.Admin.Controllers
@@ -35,27 +36,18 @@ namespace EndPoint.Admin.Controllers
 		{
 			return View();
 		}
-		public async Task<IActionResult> Search(string username)
-		{
-			if (string.IsNullOrWhiteSpace(username))
-				return RedirectToAction("Index");
 
-
-
-
-			return View();
-		}
 		[HttpGet]
 		public async Task<IActionResult> AddUser()
 		{
 
-			return  View();
+			return  View(new UserDto());
 
 		}
 		[HttpPost]
-		public async Task<IActionResult> AddUser(UserModel UsertoAdd)
+		public async Task<IActionResult> AddUser(UserDto UsertoAdd)
 		{
-			ApplicationUser userdto = ModelToDto.UserModelToDto(UsertoAdd);
+			ApplicationUser userdto = DtoToModel.UserModelToDto(UsertoAdd);
 
 			var userModel = await _userManager.FindByNameAsync(userdto.FarsiFirstName);
 			if (userModel == null)
@@ -80,12 +72,12 @@ namespace EndPoint.Admin.Controllers
 		{
 
 
-			return View(new SignInmodelv());
+			return View(new signInDto());
 
 		}
 
 		[HttpPost]
-		public async Task<IActionResult> Login(SignInmodelv sign)
+		public async Task<IActionResult> Login(signInDto sign)
 		{
 			if (!ModelState.IsValid)
 			{
@@ -99,7 +91,7 @@ namespace EndPoint.Admin.Controllers
 
 				return RedirectToAction(nameof(AddUser));
 			}
-			ApplicationUser _user = ModelToDto.UserSignInModelToDto(sign);
+			ApplicationUser _user = DtoToModel.UserSignInModelToDto(sign);
 			var checkOut = _signInManager.PasswordSignInAsync(_user, _user.Password, true, true);
 			var token = GenerateJwtToken(signUser);
 			//this Optional
@@ -141,7 +133,8 @@ namespace EndPoint.Admin.Controllers
 		public IActionResult EditUser()
 		{
 			 string userNameLogin = CurrentUser.Get();
-		     var signUser = _userManager.FindByNameAsync(userNameLogin);
+
+		     var signUser = _userManager.FindByIdAsync(userNameLogin.ToString());
 	
 			
 			 return View(signUser);

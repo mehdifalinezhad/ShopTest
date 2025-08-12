@@ -1,0 +1,51 @@
+﻿@using UploadsClean.Common.Dto
+@model List<OrderItemDto>
+<div class="card">
+    <div class="card-body">
+        <h6 class="card-title">اقلام سفارش</h6>
+
+        <div class="col-lg-3 col-sm-6 m-t-b-20">
+            <a class="btn btn-success" href="/Manager/Index">برگشت به گزارش ها</a>
+        </div>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">ردیف</th>
+                            <th scope="col">نام کالا</th>
+                            <th scope="col">فیمت کالا</th>
+                            <th scope="col">عکس کالا</th>
+                            <th scope="col">تعداد</th>
+                       
+                         
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @{
+                            int Count = 0;
+                        }
+                        @foreach (var item in Model)
+                        {
+                            <input type="hidden" asp-for="@item.Id" />
+                            Count = Count + 1;
+                            <tr>
+                                <td scope="row">@Count</td>
+                                <td>@item.product.Name</td>
+                                <td>@item.product.Price</td>
+                                <td><img src="@item.product.ImageUrl" style="height:30px;width:50px;" /></td>
+                                <td><input type="number" value="@item.Count"></td>
+                          
+                            </tr>
+
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+     
+        
+    </div>
+
+</div>

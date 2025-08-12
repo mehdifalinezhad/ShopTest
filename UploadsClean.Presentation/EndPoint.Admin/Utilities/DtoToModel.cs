@@ -3,14 +3,39 @@ using System.Security.Claims;
 using UploadsClean.Common;
 using UploadsClean.Common.Dto;
 using UploadsClean.Domain.Entities;
+using UploadsClean.Domain.Entities.Users;
 
 
 namespace EndPoint.Admin.Utilities
 {
     public static class DtoToModel
     {
+        public static ApplicationUser UserModelToDto(UserDto userdto)
+        {
+            ApplicationUser user = new ApplicationUser()
+            {
+                FarsiFirstName = userdto.FarsiFirstName,
+                Password = userdto.Password,
+                FarsiLastName = userdto.FarsiLastName,
+                PhoneNumber = userdto.PhoneNumber,
+                Role = userdto.Role,
+                UserName = userdto.UserName,
+                Email = userdto.Email
 
+            };
+            return user;
+        }
+        public static ApplicationUser UserSignInModelToDto(signInDto signDto)
+        {
+            ApplicationUser user = new ApplicationUser()
+            {
 
+                UserName = signDto.Username,
+                Password = signDto.Password,
+
+            };
+            return user;
+        }
         public static Product AboutAddProduct(ProductDto dto)
         {
             Product product = new Product()

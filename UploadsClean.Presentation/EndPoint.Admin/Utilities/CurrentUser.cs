@@ -10,8 +10,9 @@ namespace EndPoint.Admin.Utilities
 		{
 			HttpContextAccessor httpContextAccessor = new();
 
-			var username = httpContextAccessor.HttpContext.Session.GetString("ActiveUser");
-			return username;
+			string UserId = httpContextAccessor.HttpContext.Session.GetString("ActiveUser");
+			//Guid.TryParse(UserId,out Guid result);
+			return UserId;
 		}
 		public static void Set(ActiveUser activeUser)
 		{

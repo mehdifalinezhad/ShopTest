@@ -6,6 +6,7 @@ using NToastNotify;
 using System.Drawing.Text;
 using System.Net;
 using UploadsClean.Common.Dto;
+using UploadsClean.Domain.Entities;
 using UploadsClean.Domain.Entities.Users;
 using UploadsClean.Persistence.DataBaceContext;
 
@@ -50,10 +51,14 @@ namespace EndPoint.Admin.Controllers
 		}
         public IActionResult OrderItemByOrderId(int OrderId)
         {
-            var items = Db.OrderItems.Where(q => q.OrderId == OrderId).ToList();
-
-
-            return View();
+            List<OrderItem> items = Db.OrderItems.Where(q => q.OrderId == OrderId).ToList();
+			List<OrderItemDto> orderItemDto = ModelToDto.AboutOrderItem(items);
+			foreach (var item in orderItemDto)
+			{
+				item.product = Db.Products.Where(z => z.Id == item.ProductId).FirstOrDefault();			
+			    
+			}
+            return View(orderItemDto);
         }
 
 		public IActionResult UpdateStatus(int OrderId, int Status)
@@ -68,7 +73,7 @@ namespace EndPoint.Admin.Controllers
                     orderbefore.orderStatus = UploadsClean.Domain.Entities.OrderStatus.Sended;
                     break;
                 case 3:
-                    orderbefore.orderStatus = UploadsClean.Domain.Entities.OrderStatus.Processing;
+                    orderbefore.orderStatus = UploadsClean.Domain.Entities.OrderStatus.Delivered;
                     break;
             }
 			Db.Orders.Update(orderbefore);

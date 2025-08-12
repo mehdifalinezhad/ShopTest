@@ -12,7 +12,7 @@ using UploadsClean.Domain.Entities.Users;
 
 namespace UploadsClean.Persistence.DataBaceContext
 {
-    public class AppDbContext:IdentityDbContext<ApplicationUser>
+    public class AppDbContext:IdentityDbContext<ApplicationUser,ApplicationRole,string>
     {
 
         public IConfiguration Configuration { get; }

@@ -34,6 +34,7 @@ var builder = WebApplication.CreateBuilder(args);
         Layout = "topCenter",
         Theme = "metroui"
     });
+    builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
 {
 	options.IdleTimeout = TimeSpan.FromMinutes(30); // Session timeout
@@ -42,13 +43,7 @@ builder.Services.AddSession(options =>
 });
 builder.Services.AddHttpContextAccessor();
     //builder.Services.AddSingleton<IAuthorizationHandler, ClaimHandler>();
-    builder.Services.AddDistributedMemoryCache();
-    builder.Services.AddSession(options =>
-  {
-      options.IdleTimeout = TimeSpan.FromMinutes(20);
-      options.Cookie.HttpOnly = true;
-      options.Cookie.IsEssential = true;
-  });
+
 
     builder.Services.AddDbContext<AppDbContext>();
 
@@ -111,8 +106,8 @@ var app = builder.Build();
     //use middleware
     app.UseHttpsRedirection();
     app.UseStaticFiles();
-
-    app.UseRouting();
+app.UseSession();
+app.UseRouting();
 
     app.UseAuthorization();
     app.MapControllerRoute(

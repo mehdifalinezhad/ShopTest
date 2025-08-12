@@ -1,5 +1,6 @@
-﻿@using UploadsClean.Common
-@model SignInmodelv
+﻿@using UploadsClean.Common.Dto
+
+@model signInDto
 @{
     Layout = null;
 }
@@ -56,7 +57,7 @@
                                     <i class="icon-envelope"></i>
                                 </span>
                                 <input asp-for="Username" class="form-control ltr text-left" type="text" required>
-                                <span asp-validation-for="Username"></span>
+                               @*  <span asp-validation-for="Username"></span> *@
                             </div><!-- /.input-group -->
                         </div><!-- /.form-group -->
                         <div class="form-group">
@@ -66,8 +67,8 @@
                                     <i class="icon-key"></i>
                                 </span>
                                 <input asp-for="Password" class="form-control ltr text-left" type="text" minlength="5" required>
-                                <span asp-validation-for="Password"></span>
-                            </div><!-- /.input-group -->
+                                @*<span asp-validation-for="Password"></span>*@
+                             </div><!-- /.input-group -->
                         </div><!-- /.form-group -->
                         <p>
                             <button class="btn btn-info btn-round btn-block" type="submit">

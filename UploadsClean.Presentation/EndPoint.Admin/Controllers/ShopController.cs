@@ -23,8 +23,8 @@ namespace EndPoint.Admin.Controllers
 
         public ActionResult AddToCart(int Id, int Quantity = 1)
         {
-            // string UserId = CurrentUser.Get(); 
-            var UserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var UserId = CurrentUser.Get(); 
+           // var UserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             bool isSuccess = Db.CardItems.Where(c => c.UserId == UserId && c.ProductId == Id).Any();
             if (isSuccess == false)
             {
@@ -53,9 +53,8 @@ namespace EndPoint.Admin.Controllers
 
         public IActionResult ShowCardItem()
         {
-            //it may
-            // string UserId = CurrentUser.Get(); 
-            var UserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+             var UserId = CurrentUser.Get(); 
+            //var UserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var cardToShow = Db.CardItems.Where(x => x.UserId == UserId).ToList();
             List<CardItemDto> cardItemDto = ModelToDto.cardItemsModelTODto(cardToShow);
             foreach (var item in cardItemDto)

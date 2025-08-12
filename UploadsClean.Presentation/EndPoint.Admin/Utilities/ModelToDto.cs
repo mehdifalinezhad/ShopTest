@@ -16,34 +16,7 @@ namespace EndPoint.Admin.Utilities
 {
 	public static class ModelToDto
 	{
-        public static ApplicationUser UserModelToDto(UserModel user)
-		{
-			ApplicationUser userdto = new ApplicationUser() {
-				FarsiFirstName = user.FarsiFirstName,
-				Password = user.Password,
-				FarsiLastName = user.FarsiLastName,
-				PhoneNumber = user.PhoneNumber,
-				Role = user.Role,
-				UserName = user.UserName,
-				Email = user.Email
-				
-			};
-			return userdto;
-		}
-
-
-		public static ApplicationUser UserSignInModelToDto(SignInmodelv user)
-		{
-			ApplicationUser userdto = new ApplicationUser()
-			{
-				
-				UserName = user.Username,
-				Password = user.Password,
-
-			};
-			return userdto;
-		}
-
+    
 
 		public static List<CardItemDto> cardItemsModelTODto(List<CardItem> cardItems)
 		{
@@ -99,7 +72,25 @@ namespace EndPoint.Admin.Utilities
 		
 		}
 
+        public static List<OrderItemDto> AboutOrderItem(List<OrderItem> Items)
+        {
+            List<OrderItemDto> dtos = new();
 
+            foreach (var item in Items)
+            {
+                dtos.Add(new OrderItemDto()
+                {
+                    Id = item.Id,
+                    ProductId = item.ProductId,
+                    Count = item.Count,
+					OrderId=item.OrderId,
+                    
+                });
 
-	}
+            };
+
+            return dtos;
+        }
+
+    }
 }
