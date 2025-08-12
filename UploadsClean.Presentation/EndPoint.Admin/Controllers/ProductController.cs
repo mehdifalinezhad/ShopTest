@@ -1,8 +1,10 @@
 ﻿using EndPoint.Admin.Models;
+using EndPoint.Admin.Utilities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NToastNotify;
 using UploadsClean.Common;
+using UploadsClean.Common.Dto;
 using UploadsClean.Domain.Entities;
 using UploadsClean.Persistence.DataBaceContext;
 
@@ -23,16 +25,17 @@ namespace EndPoint.Admin.Controllers
 		{
 			var categories = Db.Categories.ToList();
             List<Category> theCategories = categories;
-            Product model = new Product()
+            ProductDto model = new ProductDto()
 			{
 			theCategories= theCategories	
 			};
 			return View(model);
 		}
 		[HttpPost]
-		public IActionResult AddProduct(Product modelToAdd)
+		public IActionResult AddProduct(ProductDto DtoToAdd)
 		{
-			var addedProduct = Db.Products.Add(modelToAdd);
+			Product productToAdd = DtoToModel.AboutAddProduct(DtoToAdd);
+			var addedProduct = Db.Products.Add(productToAdd);
 			Db.SaveChanges();
             notishow.AddSuccessToastMessage(AppMessage.SUCCESS);
 
@@ -43,14 +46,16 @@ namespace EndPoint.Admin.Controllers
         public IActionResult ListProduct()
         {
             List<Product> ListProducts = Db.Products.ToList();
+
             Db.SaveChanges();
             return View(ListProducts);
         }
 
-		public IActionResult GetproductById(Guid Id)
+		public IActionResult GetproductById(int Id)
 		{
 			var product = Db.Products.Where(x => x.Id == Id).FirstOrDefault();
-
+			ProductDto dto = ModelToDto.AboutProDuctById(product);
+			dto.theCategories = Db.Categories.ToList();
             return View(product);
 		}
 
@@ -65,12 +70,14 @@ namespace EndPoint.Admin.Controllers
 
         }
      
-        public IActionResult DelProduct(Guid Id)
+        public IActionResult DelProduct(int Id)
         {
 			var productToDel = Db.Products.Where(x => x.Id == Id).FirstOrDefault();
 			Db.Products.Remove(productToDel);
 			
 			Db.SaveChanges();
+
+            notishow.AddSuccessToastMessage("جنس حذف شد");
             return RedirectToAction(nameof(ListProduct));
         }
 

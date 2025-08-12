@@ -1861,3 +1861,4 @@ C:\Users\dell\source\repos\ShopTest\UploadsClean.Presentation\EndPoint.Admin\obj
 C:\Users\dell\source\repos\ShopTest\UploadsClean.Presentation\EndPoint.Admin\obj\Debug\net8.0\EndPoint.Admin.csproj.CopyComplete
 C:\Users\dell\source\repos\ShopTest\UploadsClean.Presentation\EndPoint.Admin\obj\Debug\net8.0\EndPoint.Admin.genruntimeconfig.cache
 C:\Users\dell\source\repos\ShopTest\UploadsClean.Presentation\EndPoint.Admin\obj\Debug\net8.0\ref\EndPoint.Admin.dll
+C:\Users\dell\source\repos\ShopTest\UploadsClean.Presentation\EndPoint.Admin\obj\Debug\net8.0\EndPoint.Admin.sourcelink.json

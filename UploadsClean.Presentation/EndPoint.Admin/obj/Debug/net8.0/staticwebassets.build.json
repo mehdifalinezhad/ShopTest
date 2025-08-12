@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "OFjQSurtR7+RDS7dXB+rBhVEi05fjRapwSh6YvHqwWg=",
+  "Hash": "MRHoWquh1gyMB5u6JvrQfXeriRMd11MWufsH1EHgrVY=",
   "Source": "EndPoint.Admin",
   "BasePath": "_content/EndPoint.Admin",
   "Mode": "Default",
@@ -27014,6 +27014,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Product\\f80888d2-b636-4ef3-bfa4-8a5e5a5c1c79File"
+    },
+    {
+      "Identity": "C:\\Users\\dell\\source\\repos\\ShopTest\\UploadsClean.Presentation\\EndPoint.Admin\\wwwroot\\ProductImage\\0c472626-55ab-46b6-9019-6870dfd69a47WIN_20231214_22_24_13_Pro.jpg",
+      "SourceId": "EndPoint.Admin",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\dell\\source\\repos\\ShopTest\\UploadsClean.Presentation\\EndPoint.Admin\\wwwroot\\",
+      "BasePath": "_content/EndPoint.Admin",
+      "RelativePath": "ProductImage/0c472626-55ab-46b6-9019-6870dfd69a47WIN_20231214_22_24_13_Pro.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\ProductImage\\0c472626-55ab-46b6-9019-6870dfd69a47WIN_20231214_22_24_13_Pro.jpg"
     },
     {
       "Identity": "C:\\Users\\dell\\source\\repos\\ShopTest\\UploadsClean.Presentation\\EndPoint.Admin\\wwwroot\\vendors\\bundle.css",

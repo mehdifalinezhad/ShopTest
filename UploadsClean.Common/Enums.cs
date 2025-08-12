@@ -12,12 +12,6 @@ namespace UploadsClean.Common
     
     }
 
-    public enum OrderStatus
-    {
-        Processing=1, // در حال پردازش
-        Sended=2,    // ارسال شده
-        Delivered=3   // تحویل داده شده
-    }
-
+ 
 
 }

@@ -27,7 +27,13 @@ namespace EndPoint.Admin.Controllers
 		{
 			Db.Categories.Add(category);
 			Db.SaveChanges();
-			return View(category);
+			return RedirectToAction(nameof(LisCategory));
 		}
-	}
+        public IActionResult LisCategory()
+        {
+           var categories=Db.Categories.ToList();
+            Db.SaveChanges();
+            return View(categories);
+        }
+    }
 }

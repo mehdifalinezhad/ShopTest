@@ -1,4 +1,5 @@
-﻿@model List<CategoryModel>
+﻿@using UploadsClean.Domain.Entities
+@model List<Category>
 <div class="row">
     <div class="col-md-12">
         <div class="col-lg-3 col-sm-6 m-t-b-20">
@@ -17,8 +18,7 @@
                             <tr>
                                 <th scope="col">ردیف</th>
                                 <th scope="col">نام</th>
-                                <th scope="col">عکس</th>
-                                <th scope="col">حذف</th>
+
 
                             </tr>
                         </thead>
@@ -32,10 +32,7 @@
                                 Count=Count+1;
                                 <tr>
                                     <th scope="row">@Count</th>
-                                    <td>@item.Title</td>
-                                     <td><img src="@item.ImageUrl" style="height:30px;width:50px;"/></td>
-                                    @*<td><img href="@item.ImageUrlLow" style="height:30px;width:50px;"/></td>*@
-                                    <td><a href="/Category/CategoryDel?Id=@item.Id"> del</a></td>
+                                    <td>@item.Name</td>
                                 </tr>
 
                             }

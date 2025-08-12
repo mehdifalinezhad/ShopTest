@@ -1,5 +1,5 @@
-﻿@using UploadsClean.Domain.Entities
-@model Product
+﻿@using UploadsClean.Common.Dto
+@model ProductDto
 <div class="card">
     <div class="card-body">
         <h6 class="card-title">اضافه کردن کالا</h6>
@@ -11,7 +11,7 @@
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="validationCustom01">عکس محصول </label>
-                    <input type="File" class="form-control" asp-for="ImageUrl" placeholder="فایل عکس"> 
+                    <input type="File" class="form-control" asp-for="ImageFile" placeholder="فایل عکس"> 
                 </div>
             </div>
             <div class="form-row">

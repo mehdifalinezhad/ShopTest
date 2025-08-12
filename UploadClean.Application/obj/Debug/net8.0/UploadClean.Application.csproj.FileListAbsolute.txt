@@ -76,3 +76,4 @@ C:\Users\dell\source\repos\ShopTest\UploadClean.Application\obj\Debug\net8.0\ref
 C:\Users\dell\source\repos\ShopTest\UploadClean.Application\obj\Debug\net8.0\UploadClean.Application.pdb
 C:\Users\dell\source\repos\ShopTest\UploadClean.Application\obj\Debug\net8.0\UploadClean.Application.genruntimeconfig.cache
 C:\Users\dell\source\repos\ShopTest\UploadClean.Application\obj\Debug\net8.0\ref\UploadClean.Application.dll
+C:\Users\dell\source\repos\ShopTest\UploadClean.Application\obj\Debug\net8.0\UploadClean.Application.sourcelink.json

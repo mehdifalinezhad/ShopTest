@@ -1,5 +1,5 @@
-﻿@using UploadsClean.Domain.Entities
-@model Product
+﻿@using UploadsClean.Common.Dto
+@model ProductDto
 
 <div class="card">
     <div class="card-body">
@@ -69,7 +69,7 @@
         var countPro = document.getElementById("countBuy");
         $.ajax({
             url: "/Shop/AddToCart",
-            type: "Post",
+            type: "get",
             data: { Id: @Model.Id, Quantity: countPro },
             success: function (response) {
                 alert("به سبد خرید اضاف شد");

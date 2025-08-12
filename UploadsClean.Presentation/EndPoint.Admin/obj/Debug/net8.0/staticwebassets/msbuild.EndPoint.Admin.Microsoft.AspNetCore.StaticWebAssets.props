@@ -22672,6 +22672,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Product\f80888d2-b636-4ef3-bfa4-8a5e5a5c1c79File))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImage\0c472626-55ab-46b6-9019-6870dfd69a47WIN_20231214_22_24_13_Pro.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>EndPoint.Admin</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/EndPoint.Admin</BasePath>
+      <RelativePath>ProductImage/0c472626-55ab-46b6-9019-6870dfd69a47WIN_20231214_22_24_13_Pro.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImage\0c472626-55ab-46b6-9019-6870dfd69a47WIN_20231214_22_24_13_Pro.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\toastr.js))">
       <SourceType>Package</SourceType>
       <SourceId>EndPoint.Admin</SourceId>

@@ -1,0 +1,80 @@
+﻿@using UploadsClean.Common.Dto
+@model ManagerDto
+
+<div class="card">
+    <div class="card-body">
+        <h6 class="card-title"> گزارش مدیریتی</h6>
+       
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="validationCustom01">تعداد کل کاربران</label>
+                    <input type="text" class="form-control" asp-for="AllUsers">
+                </div>
+
+            </div>
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label>تعداد کل سفارشات </label>
+                <input type="text" class="form-control" asp-for="OrderCount">
+
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="validationCustom01"> مجموعه فروش  </label>
+                <input type="text" class="form-control" asp-for="AllSellPrice">
+                </div>
+            </div>
+         
+
+    </div>
+    <div class="card-body">
+        <h6 class="card-title">سفارشات </h6>
+
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">ردیف</th>
+                            <th scope="col">نام کاربری </th>
+                            <th scope="col"> مبلغ سفارش</th>
+                            <th scope="col"> وضعیت</th>
+                            <th scope="col">  درج وضعیت</th>
+                            <th scope="col"> اقلام سفارش</th>
+                            
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @{
+                            int Count = 0;
+                        }
+                        @foreach (var item in Model.ordersDto)
+                        {
+                            <input type="hidden" asp-for="@item.Id" />
+                            Count = Count + 1;
+                            <tr>
+                                <td scope="row">@Count</td>
+                                <td>@item.Customer</td>
+                                <td>@item.TotalPrice</td>
+                            <td>
+                                <select asp-for="@item.orderStatus">
+                                    <option value="1">در حال پردازش</option>
+                                    <option value="2">ارسال شده</option>
+                                    <option value="3">تحویل داده شده</option>
+                                </select>
+                            </td>
+                            <td><a href="/Manager/UpdateStatus?OrderId=@item.Id&Status=@item.orderStatus">+</a></td>
+
+                                <td><a href="/Manager/OrderItemByOrderId?OrderId=@item.Id">Detail</a></td>
+                            </tr>
+
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+      
+        
+    </div>
+
+</div>

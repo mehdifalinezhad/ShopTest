@@ -1,4 +1,5 @@
 ﻿using EndPoint.Admin.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -9,12 +10,13 @@ using UploadsClean.Common;
 using UploadsClean.Common.Dto;
 using UploadsClean.Domain.Entities;
 using UploadsClean.Domain.Entities.Users;
+using UploadsClean.Persistence.DataBaceContext;
 
 namespace EndPoint.Admin.Utilities
 {
 	public static class ModelToDto
 	{
-         public static ApplicationUser UserModelToDto(UserModel user)
+        public static ApplicationUser UserModelToDto(UserModel user)
 		{
 			ApplicationUser userdto = new ApplicationUser() {
 				FarsiFirstName = user.FarsiFirstName,
@@ -43,20 +45,61 @@ namespace EndPoint.Admin.Utilities
 		}
 
 
-		public static CardItemDto cardItemModelTODto (CardItem cardItem)
+		public static List<CardItemDto> cardItemsModelTODto(List<CardItem> cardItems)
 		{
-			CardItemDto dto = new CardItemDto()
+			List<CardItemDto> dtos = new();
+			
+		    foreach(var item in cardItems)
 			{
-				Id = cardItem.Id,
-				ProductId = cardItem.ProductId,
-				CreatedTime = Pub.ToPersionDate(cardItem.CreatedTime),
-				Quantity = cardItem.Quantity,
-				UserId = cardItem.UserId
+				dtos.Add(new CardItemDto()
+				{
+					Id = item.Id,
+					ProductId = item.ProductId,
+					CreatedTime = Pub.ToPersionDate(item.CreatedTime),
+					Quantity = item.Quantity,
+					UserId = item.UserId,
+				
+				});
+				
 			};
 
-			return dto;
+			return dtos;
         }
+		public static ProductDto AboutProDuctById(Product ProModel)
+		{
+			ProductDto dto = new ProductDto()
+			{ 
+			
+				Id = ProModel.Id,	
+				Name= ProModel.Name,
+				Count= ProModel.Count,
+				Price=ProModel.Price,
+				CategoryId=ProModel.CategoryId,
+				ImageUrl=ProModel.ImageUrl,			
+			};
+            return dto;
+		}
+
+		public static List<OrderDto> AboutOrder(List<Order> orders) 
+		{
+			List<OrderDto> dtos = new();
+			foreach (var item in orders)
+			{
+				dtos.Add(new OrderDto()
+				{
+					Id = item.Id,
+					orderStatus=item.orderStatus,
+					TotalPrice=item.TotalPrice,
+					UserId = item.UserId
+				});
+
+			};
+
+			return dtos;
+		
+		}
 
 
-    }
+
+	}
 }

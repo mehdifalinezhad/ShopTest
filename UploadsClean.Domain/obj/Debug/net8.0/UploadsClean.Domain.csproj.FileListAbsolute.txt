@@ -48,3 +48,4 @@ C:\Users\dell\source\repos\ShopTest\UploadsClean.Domain\obj\Debug\net8.0\Uploads
 C:\Users\dell\source\repos\ShopTest\UploadsClean.Domain\obj\Debug\net8.0\refint\UploadsClean.Domain.dll
 C:\Users\dell\source\repos\ShopTest\UploadsClean.Domain\obj\Debug\net8.0\UploadsClean.Domain.pdb
 C:\Users\dell\source\repos\ShopTest\UploadsClean.Domain\obj\Debug\net8.0\ref\UploadsClean.Domain.dll
+C:\Users\dell\source\repos\ShopTest\UploadsClean.Domain\obj\Debug\net8.0\UploadsClean.Domain.sourcelink.json

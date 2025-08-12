@@ -68,3 +68,4 @@ C:\Users\dell\source\repos\ShopTest\UploadsClean.Common\obj\Debug\net8.0\refint\
 C:\Users\dell\source\repos\ShopTest\UploadsClean.Common\obj\Debug\net8.0\UploadsClean.Common.pdb
 C:\Users\dell\source\repos\ShopTest\UploadsClean.Common\obj\Debug\net8.0\UploadsClean.Common.genruntimeconfig.cache
 C:\Users\dell\source\repos\ShopTest\UploadsClean.Common\obj\Debug\net8.0\ref\UploadsClean.Common.dll
+C:\Users\dell\source\repos\ShopTest\UploadsClean.Common\obj\Debug\net8.0\UploadsClean.Common.sourcelink.json

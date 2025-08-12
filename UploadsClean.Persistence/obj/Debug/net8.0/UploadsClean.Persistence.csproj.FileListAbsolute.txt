@@ -76,3 +76,4 @@ C:\Users\dell\source\repos\ShopTest\UploadsClean.Persistence\obj\Debug\net8.0\re
 C:\Users\dell\source\repos\ShopTest\UploadsClean.Persistence\obj\Debug\net8.0\UploadsClean.Persistence.pdb
 C:\Users\dell\source\repos\ShopTest\UploadsClean.Persistence\obj\Debug\net8.0\UploadsClean.Persistence.genruntimeconfig.cache
 C:\Users\dell\source\repos\ShopTest\UploadsClean.Persistence\obj\Debug\net8.0\ref\UploadsClean.Persistence.dll
+C:\Users\dell\source\repos\ShopTest\UploadsClean.Persistence\obj\Debug\net8.0\UploadsClean.Persistence.sourcelink.json
