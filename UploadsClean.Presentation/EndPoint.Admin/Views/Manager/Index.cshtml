@@ -36,8 +36,8 @@
                             <th scope="col">ردیف</th>
                             <th scope="col">نام کاربری </th>
                             <th scope="col"> مبلغ سفارش</th>
-                            <th scope="col"> وضعیت</th>
-                            <th scope="col">  درج وضعیت</th>
+                            <th scope="col"> وضعیت و ویرایش</th>
+                            
                             <th scope="col"> اقلام سفارش</th>
                             
 
@@ -50,20 +50,24 @@
                         }
                         @foreach (var item in Model.ordersDto)
                         {
-                            <input type="hidden" asp-for="@item.Id" />
+                        <input type="hidden" asp-for="@item.Id" />
+
                             Count = Count + 1;
                             <tr>
                                 <td scope="row">@Count</td>
                                 <td>@item.Customer</td>
                                 <td>@item.TotalPrice</td>
                             <td>
-                                <select asp-for="@item.orderStatus">
+                                <form method="get" asp-action="UpdateStatus" asp-controller="Manager">
+                            <input type="hidden" name="OrderId" value="@item.Id"  asp-for="@item.Id"/>
+                                    <select name="Status" asp-for="@item.orderStatus">
                                     <option value="1">در حال پردازش</option>
                                     <option value="2">ارسال شده</option>
                                     <option value="3">تحویل داده شده</option>
                                 </select>
-                            </td>
-                            <td><a href="/Manager/UpdateStatus?OrderId=@item.Id&Status=@item.orderStatus">+</a></td>
+                            <button type="submit">+</button>
+                                </form>    
+                        </td>
 
                                 <td><a href="/Manager/OrderItemByOrderId?OrderId=@item.Id">Detail</a></td>
                             </tr>

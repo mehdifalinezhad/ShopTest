@@ -36,3 +36,16 @@ C:\ProjectTest\UploadsClean.Domain\obj\Debug\net8.0\UploadsClean.Domain.dll
 C:\ProjectTest\UploadsClean.Domain\obj\Debug\net8.0\refint\UploadsClean.Domain.dll
 C:\ProjectTest\UploadsClean.Domain\obj\Debug\net8.0\UploadsClean.Domain.pdb
 C:\ProjectTest\UploadsClean.Domain\obj\Debug\net8.0\ref\UploadsClean.Domain.dll
+C:\Users\dell\source\repos\ShopTest\UploadsClean.Domain\bin\Debug\net8.0\UploadsClean.Domain.deps.json
+C:\Users\dell\source\repos\ShopTest\UploadsClean.Domain\bin\Debug\net8.0\UploadsClean.Domain.dll
+C:\Users\dell\source\repos\ShopTest\UploadsClean.Domain\bin\Debug\net8.0\UploadsClean.Domain.pdb
+C:\Users\dell\source\repos\ShopTest\UploadsClean.Domain\obj\Debug\net8.0\UploadsClean.Domain.csproj.AssemblyReference.cache
+C:\Users\dell\source\repos\ShopTest\UploadsClean.Domain\obj\Debug\net8.0\UploadsClean.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dell\source\repos\ShopTest\UploadsClean.Domain\obj\Debug\net8.0\UploadsClean.Domain.AssemblyInfoInputs.cache
+C:\Users\dell\source\repos\ShopTest\UploadsClean.Domain\obj\Debug\net8.0\UploadsClean.Domain.AssemblyInfo.cs
+C:\Users\dell\source\repos\ShopTest\UploadsClean.Domain\obj\Debug\net8.0\UploadsClean.Domain.csproj.CoreCompileInputs.cache
+C:\Users\dell\source\repos\ShopTest\UploadsClean.Domain\obj\Debug\net8.0\UploadsClean.Domain.sourcelink.json
+C:\Users\dell\source\repos\ShopTest\UploadsClean.Domain\obj\Debug\net8.0\UploadsClean.Domain.dll
+C:\Users\dell\source\repos\ShopTest\UploadsClean.Domain\obj\Debug\net8.0\refint\UploadsClean.Domain.dll
+C:\Users\dell\source\repos\ShopTest\UploadsClean.Domain\obj\Debug\net8.0\UploadsClean.Domain.pdb
+C:\Users\dell\source\repos\ShopTest\UploadsClean.Domain\obj\Debug\net8.0\ref\UploadsClean.Domain.dll

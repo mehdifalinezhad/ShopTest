@@ -47,22 +47,22 @@ namespace EndPoint.Admin.Controllers
 		[HttpPost]
 		public async Task<IActionResult> AddUser(UserDto UsertoAdd)
 		{
-			ApplicationUser userdto = DtoToModel.UserModelToDto(UsertoAdd);
+			ApplicationUser user = DtoToModel.UserModelToDto(UsertoAdd);
 
-			var userModel = await _userManager.FindByNameAsync(userdto.FarsiFirstName);
+			var userModel = await _userManager.FindByNameAsync(user.FarsiFirstName);
 			if (userModel == null)
 			{
-				var result = await _userManager.CreateAsync(userdto, userdto.Password);
-				var ThisRole = await _userManager.AddToRoleAsync(userdto, userdto.Role);
+				var result = await _userManager.CreateAsync(user, user.Password);
+				var ThisRole = await _userManager.AddToRoleAsync(user, user.Role);
 				ModelState.Clear();
+				notishow.AddSuccessToastMessage("کاربر اضاف شد");
 			}
-			else
+			else 
 			{
-				var UserUpdated = await _userManager.UpdateAsync(userdto);
-				notishow.AddSuccessToastMessage("کاربر ویرایش شد");
-				return View(UsertoAdd);
+				notishow.AddSuccessToastMessage("شما قبلا ثبت نام کردین برو لاگین");
 			}
-			notishow.AddSuccessToastMessage("کاربر اضاف شد");
+		
+			
 			
 			return View(UsertoAdd);
 	
@@ -94,15 +94,17 @@ namespace EndPoint.Admin.Controllers
 			ApplicationUser _user = DtoToModel.UserSignInModelToDto(sign);
 			var checkOut = _signInManager.PasswordSignInAsync(_user, _user.Password, true, true);
 			var token = GenerateJwtToken(signUser);
-			//this Optional
-			ActiveUser activeUser = new ActiveUser()
+            string Token = await _userManager.GeneratePasswordResetTokenAsync(signUser);
+
+            //this Optional
+            ActiveUser activeUser = new ActiveUser()
 			{
 				UserId = signUser.Id
 
 			};
 			CurrentUser.Set(activeUser);
 			notishow.AddSuccessToastMessage("ورود با موفقیت انجام شد");
-			return RedirectToAction("Index"); ;
+			return RedirectToAction("Index","Home"); ;
 
 		}
 	
@@ -132,19 +134,36 @@ namespace EndPoint.Admin.Controllers
 		//پروفایل
 		public IActionResult EditUser()
 		{
-			 string userNameLogin = CurrentUser.Get();
+			 string UserId = CurrentUser.Get();
+			if(UserId == null) 
+			{
+                notishow.AddErrorToastMessage("هنوز لاگین نکردی");
+				return RedirectToAction("Index", "Home");
+            }
+		     var signUser = _userManager.Users.Where(c=>c.Id==UserId).FirstOrDefault();
+			UserDto userDto = ModelToDto.AboutEditUser(signUser);
 
-		     var signUser = _userManager.FindByIdAsync(userNameLogin.ToString());
-	
-			
-			 return View(signUser);
+
+			 return View(userDto);
 		}
 		[HttpPost]
-		public IActionResult EditUser(ApplicationUser usertoChange)
+		public async Task<IActionResult> EditUser(UserDto userDto)
 		{
-			var UserUpdated = _userManager.UpdateAsync(usertoChange);
+			var userBefore= _userManager.Users.Where(c => c.Id == userDto.Id).FirstOrDefault();
+			 userBefore.PhoneNumber=userDto.PhoneNumber;
+			 userBefore.UserName=userDto.UserName;
+			 userBefore.Email=userDto.Email;
+			 userBefore.Password=userDto.Password;
+			 userBefore.Role=userDto.Role;
+			 userBefore.UserName =userDto.UserName;
+			 userBefore.FarsiFirstName=userDto.FarsiFirstName;
+			 userBefore.FarsiLastName=userDto.FarsiLastName;
+			 
+
+			var UserUpdated =await _userManager.UpdateAsync(userBefore);
 			notishow.AddSuccessToastMessage("کاربر ویرایش شد");
-			return View(usertoChange);
+
+			return View(userDto);
 		}
 	
 

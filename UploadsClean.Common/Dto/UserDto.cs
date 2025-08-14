@@ -9,6 +9,7 @@ namespace UploadsClean.Common.Dto
 {
     public class UserDto
     {
+        public string Id { get; set; }  
        // [Required(ErrorMessage = "نام الزامی است")]
         public string FarsiFirstName { set; get; }
         //[Required(ErrorMessage = "نام خانوادگی الزامی است ")]

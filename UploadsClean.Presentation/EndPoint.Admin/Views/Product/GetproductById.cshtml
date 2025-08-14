@@ -45,7 +45,10 @@
 
                     </div>
                 </div>
-
+                <div class="col-md-6 mb-6">
+                    <label for="validationCustom01">عکس محصول </label>
+                    <input type="File" class="form-control" asp-for="ImageFile" placeholder="فایل عکس">
+                </div>
 
 
             </div>
@@ -55,8 +58,8 @@
                     <label>تعداد خرید </label>
                     <input type="number" id="countBuy" class="form-control">
 
+                <button style="border:dashed;color:darkblue; margin-top:5px;" onclick="AddTOCart()">افزودن به سبد خرید </button>
                 </div>
-                <button class="btn btn-Success" onclick="AddTOCart()">افزودن به سبد خرید </button>
             </div>
         </form>
     </div>
@@ -66,13 +69,15 @@
 <script type="text/javascript">
     function AddTOCart() {
         alert("in function");
-        var countPro = document.getElementById("countBuy");
+        var countPro = document.getElementById("countBuy").value;
         $.ajax({
             url: "/Shop/AddToCart",
             type: "get",
             data: { Id: @Model.Id, Quantity: countPro },
-            success: function (response) {
-                alert("به سبد خرید اضاف شد");
+         
+            success: function (res) {
+               //res.
+                alert("after Success");
             },
             error: function (xhr, status, error) {
                 console.error(error);

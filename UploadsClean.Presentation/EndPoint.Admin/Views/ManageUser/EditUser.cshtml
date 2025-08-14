@@ -1,10 +1,11 @@
-﻿@using UploadsClean.Domain.Entities.Users
+﻿@using UploadsClean.Common.Dto
 
-@model ApplicationUser
+@model UserDto
 <div class="card">
     <div class="card-body">
         <h6 class="card-title">پروفایل کاربر </h6>
-        <form role="form" method="post" asp-controller="ManageUser" asp-action="AddUser" class="needs-validation" novalidate="">
+        <form role="form" method="post" asp-controller="ManageUser" asp-action="EditUser" class="needs-validation" novalidate="">
+            <input type="hidden" asp-for="Id"></input>
             <div class="form-row">
                 <div class="col-md-6 mb-3">
                     <label for="validationCustom01">نام </label>

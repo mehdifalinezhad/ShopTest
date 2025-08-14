@@ -16,7 +16,23 @@ namespace EndPoint.Admin.Utilities
 {
 	public static class ModelToDto
 	{
-    
+		public static UserDto AboutEditUser(ApplicationUser? User)
+		{
+			UserDto dto = new UserDto()
+			{
+				Id=User.Id,	
+				FarsiFirstName = User.FarsiFirstName,
+				Password = User.Password,
+				FarsiLastName = User.FarsiLastName,
+				PhoneNumber = User.PhoneNumber,
+				Role = User.Role,
+				UserName = User.UserName,
+				Email = User.Email
+
+
+			};
+			return dto;
+		}
 
 		public static List<CardItemDto> cardItemsModelTODto(List<CardItem> cardItems)
 		{

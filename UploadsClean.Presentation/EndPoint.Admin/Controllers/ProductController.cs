@@ -53,20 +53,38 @@ namespace EndPoint.Admin.Controllers
 
 		public IActionResult GetproductById(int Id)
 		{
-			var product = Db.Products.Where(x => x.Id == Id).FirstOrDefault();
+            string UserId = CurrentUser.Get();
+            if (UserId == null)
+            {
+                notishow.AddErrorToastMessage("هنوز لاگین نکردی");
+                return RedirectToAction("Index", "Home");
+            }
+            var product = Db.Products.Where(x => x.Id == Id).FirstOrDefault();
 			ProductDto dto = ModelToDto.AboutProDuctById(product);
 			dto.theCategories = Db.Categories.ToList();
-            return View(product);
+            return View(dto);
 		}
 
 		[HttpPost]
-        public IActionResult EditProduct(Product producttoUpdate)
+        public IActionResult EditProduct(ProductDto producttoUpdate)
         {
+			var productBefore = Db.Products.Where(x => x.Id == producttoUpdate.Id).FirstOrDefault();
+				productBefore.Name= producttoUpdate.Name;
+				productBefore.Count = producttoUpdate.Count;
+				productBefore.Price = producttoUpdate.Price;
+			if (producttoUpdate.ImageFile != null)
+			{
+				productBefore.ImageUrl = UploadImages.SaveImage(producttoUpdate.ImageFile, "ProductImage");
+			}
+
+			productBefore.CategoryId = producttoUpdate.CategoryId;
+				
 			
-			var ProductBefore=Db.Products.Update(producttoUpdate);
+			var ProductUpdate=Db.Products.Update(productBefore);
+			Db.SaveChanges();
+			notishow.AddSuccessToastMessage("محصول ویرایش شد");
 
-
-            return RedirectToAction(nameof(ListProduct));
+			return RedirectToAction(nameof(ListProduct));
 
         }
      

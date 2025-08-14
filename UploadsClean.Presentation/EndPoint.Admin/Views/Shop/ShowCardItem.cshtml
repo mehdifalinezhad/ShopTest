@@ -4,7 +4,7 @@
     <div class="card-body">
         <h6 class="card-title">سبد خرید شما </h6>
         <form role="form" method="post" asp-controller="Shop" asp-action="BuyProduct" class="needs-validation" novalidate="" enctype="multipart/form-data">
-        
+
             <div class="table-responsive">
                 <table class="table">
                     <thead>
@@ -14,9 +14,10 @@
                             <th scope="col">فیمت کالا</th>
                             <th scope="col">عکس کالا</th>
                             <th scope="col">تعداد</th>
+                            <th scope="col">ویرایش تعداد</th>
                             <th scope="col">حذف</th>
-                            <th scope="col">بروز رسانی تعداد</th>
-                            
+
+
                         </tr>
                     </thead>
                     <tbody>
@@ -24,31 +25,56 @@
                         @{
                             int Count = 0;
                         }
-                         @foreach (var item in Model)
+                        @for(int i=0;i<Model.Count();i++)
                         {
-                            <input type="hidden" asp-for="@item.Id"/>
+                            <input type="hidden" asp-for="@Model[i].ProductId" />
+                            <input type="hidden" asp-for="@Model[i].UserId" />
                             Count = Count + 1;
+                          
                             <tr>
                                 <td scope="row">@Count</td>
-                                <td>@item.ProductName</td>
-                                <td>@item.ProductPrise</td>
-                                <td><img src="@item.ProductImageUrl" style="height:30px;width:50px;"/></td>
-                                <td><input type="number" value="@item.Quantity"></td>
-                                <td><a href="/Shop/cartDel?Id=@item.Id">del</a></td>
-                                <td><a href="/Shop/changeCount?Id=@item.Id&NewCount=@item.Quantity">update</a></td>
-                             </tr>
+                                <td>@Model[i].ProductName</td>
+                                <td>@Model[i].ProductPrise</td>
+                                <td><img src="@Model[i].ProductImageUrl" style="height:30px;width:50px;" /></td>
+                                <td>
+                                    <input type="number" id="countitem" asp-for="@Model[i].Quantity">
+                                </td>
+                                <td>
+                                    <button onclick="sendChangeCount();">update</button>
+                                </td>
+                                <td><a href="/Shop/cartDel?Id=@Model[i].Id">del</a></td>
 
-                        } 
+                            </tr>
+
+                        }
                     </tbody>
                 </table>
             </div>
-    
             <div class="row">
-           
-                <button type="submit" class="btn btn-Success">خرید </button>
+
+                <button type="submit" class="btn btn-success" style="border:dashed;color:darkblue; margin-top:5px;">خرید </button>
             </div>
         </form>
     </div>
 
 </div>
 
+<script type="text/javascript">
+    function sendChangeCount() {
+        alert("in");
+        var newCount = document.getElementById("countitem").value;
+
+
+        $.ajax({
+            url: '/Shop/ChangeCount',
+            type: 'get',
+            data: { Id: id, NewCount: newCount },
+            success: function (res) {
+                alert("مقدار بروزرسانی شد به:");
+            },
+            error: function () {
+                alert("خطا در بروزرسانی");
+            }
+        });
+    }
+</script>

@@ -25,7 +25,8 @@ namespace EndPoint.Admin.Utilities
             };
             return user;
         }
-        public static ApplicationUser UserSignInModelToDto(signInDto signDto)
+	
+		public static ApplicationUser UserSignInModelToDto(signInDto signDto)
         {
             ApplicationUser user = new ApplicationUser()
             {
@@ -70,5 +71,6 @@ namespace EndPoint.Admin.Utilities
 
 
         }
-    }
+
+	}
 }

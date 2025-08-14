@@ -26,7 +26,7 @@ var builder = WebApplication.CreateBuilder(args);
     });
 
 
-    builder.Services.AddMvc().AddNToastNotifyNoty(new NotyOptions   
+    builder.Services.AddMvc().AddNToastNotifyNoty(new NotyOptions() 
     {
         Timeout = 3000,
         ProgressBar = true,
@@ -69,7 +69,7 @@ builder.Services.AddHttpContextAccessor();
         // User settings.
         options.User.AllowedUserNameCharacters =
         "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
-        options.User.RequireUniqueEmail = true;
+        options.User.RequireUniqueEmail = false;
     });
 var key = Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]);
 
